@@ -1,0 +1,72 @@
+:root {
+  --paper: #F6F2E8;
+  --paper-dim: #EDE6D3;
+  --paper-panel: #FBF8F1;
+  --ink: #23262B;
+  --ink-soft: #4A4E56;
+  --muted: #8C8572;
+  --blueprint: #2B4C8C;
+  --blueprint-bright: #3A63B8;
+  --blueprint-pale: #E4EAF5;
+  --rust: #B5502F;
+  --rust-pale: #F4E3DA;
+  --grid-line: #DBD3BC;
+  --grid-line-strong: #C9BFA1;
+
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: "IBM Plex Serif", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+#root {
+  min-height: 100vh;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: -1px -1px;
+}
+
+::selection {
+  background: var(--blueprint);
+  color: var(--paper);
+}
+
+a { color: var(--blueprint); }
+
+button {
+  font-family: var(--mono);
+  cursor: pointer;
+}
+
+/* focus visibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--blueprint);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+code, .mono { font-family: var(--mono); }
+
+.scroll-thin::-webkit-scrollbar { height: 6px; width: 6px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: var(--grid-line-strong); border-radius: 3px; }
